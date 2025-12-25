@@ -1,6 +1,9 @@
-# Ignore all log files
+sk 1
+- T# Ignore all log files
 *.log
 .env
+*.vbs
+*.csv
 # Ignore build folder
 /build/
 /.venv/

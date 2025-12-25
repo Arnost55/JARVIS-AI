@@ -112,6 +112,7 @@ def transcribe_speech():
     
     try:
         # Capture audio while user speaks
+        
         audio_data = get_audio_data()
         
         # Process with Leopard model
