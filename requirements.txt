@@ -1,0 +1,10 @@
+google-api-python-client 
+google-auth-httplib2 
+google-auth-oauthlib
+dotenv
+google-auth
+pyaudio
+google-ai-generativelanguage
+google-cloud-texttospeech
+google-generativeai
+openrouter

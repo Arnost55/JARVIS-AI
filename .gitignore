@@ -1,0 +1,6 @@
+# Ignore all log files
+*.log
+.env
+# Ignore build folder
+/build/
+/.venv/
