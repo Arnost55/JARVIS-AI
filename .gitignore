@@ -4,6 +4,7 @@ sk 1
 .env
 *.vbs
 *.csv
+test.py
 # Ignore build folder
 /build/
 /.venv/
