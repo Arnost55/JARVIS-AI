@@ -124,7 +124,11 @@ def transcribe_speech():
         transcript, words = leopard.process(audio_data)
         
         print(f"\n✓ Transcription: {transcript}\n")
-        
+
+        if transcript is not None:
+            textfromt2s = {transcript}
+        elif transcript is None:
+            textfromt2s = "No Transcription Available"
         # Print word-level details
         if words:
             print("Word details:")
