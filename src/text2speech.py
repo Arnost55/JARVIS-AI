@@ -12,8 +12,13 @@ from datetime import datetime
 import argparse
 import pvleopard as leopard
 import pvleopard as pvl
+from pathlib import Path
+print (pvl.default_library_path)
+# path to a file one directory above this file
+BASE_DIR = Path(__file__).resolve().parent  # folder containing this file
+TARGET = BASE_DIR.parent / ".env"  # adjust name as needed
 
-dotenv.load_dotenv()
+dotenv.load_dotenv(TARGET)  # load the .env file
 
 pydub.AudioSegment.converter = "ffmpeg"
 pydub.AudioSegment.ffmpeg = "C:\\Users\\ASUS\\Desktop\\JARVIS-AI\\ffmpeg\\bin\\ffmpeg.exe"
@@ -27,7 +32,7 @@ def transcribe_audio_from_mic():
     
     # Initialize wake word detector
     porcupine = pvporcupine.create(
-        access_key="HfBkIZblaH6jvUEsxAXnPCecPPlNS4QFsZ02gTAUxFr0u/NVLXkh6A==",
+        access_key=PORCUPINE_ACCESS_KEY,
         keywords=["jarvis"],
     )
 
@@ -108,7 +113,7 @@ def get_audio_data():
 
 def transcribe_speech():
     """Transcribe speech using Leopard speech recognition model."""
-    leopard = pvl.create(access_key="HfBkIZblaH6jvUEsxAXnPCecPPlNS4QFsZ02gTAUxFr0u/NVLXkh6A==", model_path="C:\\Users\\ASUS\\Desktop\\JARVIS-AI\\jarvis-leopard-default-v3.0.0-25-12-22--20-12-48.pv", enable_automatic_punctuation=True, device="CPU")
+    leopard = pvl.create(access_key=PORCUPINE_ACCESS_KEY, model_path="C:\\Users\\ASUS\\Desktop\\JARVIS-AI\\jarvis-leopard-default-v3.0.0-25-12-22--20-12-48.pv", enable_automatic_punctuation=True, device="CPU")
     
     try:
         # Capture audio while user speaks

@@ -35,5 +35,32 @@ def initialization():
     except KeyboardInterrupt:
         print("\n\nShutting down JARVIS...")
 
+
+def initialize_w_gui():
+
+ortr_api_key = os.getenv("ORTR_API_KEY")
+ortr_model_full_name = os.getenv("OPENROUTER_MODEL_FULL_NAME")
+
+def initialization():
+    ortr.init(ortr_api_key)
+    ortr.set_default_model(ortr_model_full_name)
+    ortr.ChatCompletion.set_default_params({
+        "temperature": 0.2,
+        "max_new_tokens": 2048,
+        "top_p": 0.7,
+        "frequency_penalty": 0,
+        "presence_penalty": 0,
+    })
+    print(f"OpenRouter initialized with model {ortr_model_full_name}")
+    print("JARVIS AI Assistant - Speech Recognition System")
+    print("=" * 60)
+    print("\nInitializing wake word detection...")
+    print("Say 'Hey Jarvis' to activate\n")
+    
+    try:
+        text2speech.transcribe_audio_from_mic()
+    except KeyboardInterrupt:
+        print("\n\nShutting down JARVIS...")
+    import src.gui as gui
 if __name__ == "__main__":
     initialization()
