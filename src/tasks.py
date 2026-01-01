@@ -9,8 +9,23 @@ def wish():
         return "Good Afternoon!"
     else:
         return "Good Evening!"
+
+if "time" in t2s.textfromt2s:
+    print(wish())
+else:
+    print("NO")
+
+
 while True:
     if t2s.textfromt2s == "No Transcription Available":
         print("No Transcription Available")
     else:
         print(t2s.textfromt2s)
+        
+if "hello" in t2s.textfromt2s:
+    wish()
+else:
+    break
+
+
+

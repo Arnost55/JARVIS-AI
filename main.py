@@ -6,7 +6,7 @@ import openrouter as ortr
 import src.mcp_server as server
 import src.tasks as tasks
 from google.cloud import *
-import src.text2speech as text2speech
+import s2t as s2t
 import datetime as dt
 dotenv.load_dotenv() # Load environment variables from .env file
 
@@ -15,7 +15,7 @@ ortr_api_key = os.getenv("ORTR_API_KEY")
 ortr_model_full_name = os.getenv("OPENROUTER_MODEL_FULL_NAME")
 
 
-
+def 
 def initialize_w_gui():
     import src.gui as gui
     
@@ -37,9 +37,8 @@ def initialization():
     print("Say 'Hey Jarvis' to activate\n")
     
     try:
-        text2speech.transcribe_audio_from_mic()
+        s2t.main()
     except KeyboardInterrupt:
         print("\n\nShutting down JARVIS...")
-    import src.gui as gui
 if __name__ == "__main__":
     initialization()
